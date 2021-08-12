@@ -1,0 +1,25 @@
+{
+  "urlBase": "https://subsplease.org/shows",
+  "output": "./downloads",
+  "createSubDirectories": true,
+  "animes": [
+    "love-live-superstar"
+  ],
+  "quality": "720p",
+  "webTorrentConfigs": {
+    "maxConns": 55,
+    "tracker": true,
+    "dht": true,
+    "lsd": true,
+    "webSeeds": true,
+    "utp": true,
+    "blocklist": ""
+  },
+  "clientConfigs": {
+    "maxWebConns": 4,
+    "private": true,
+    "destroyStoreOnDestroy": false,
+    "storeCacheSlots": 20,
+    "skipVerify": false
+  }
+}

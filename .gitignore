@@ -1,0 +1,5 @@
+npm_modules
+downloads
+*.log
+*.logs
+config.json
