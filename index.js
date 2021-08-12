@@ -97,7 +97,7 @@ animes.map(async (name) => {
             }
 
             const addLogInterval = setInterval(
-              addLog({ name: file.name, progress: file.progress }),
+              () => addLog({ name: file.name, progress: file.progress }),
               5000
             );
 

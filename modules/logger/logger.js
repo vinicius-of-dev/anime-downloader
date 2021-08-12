@@ -7,6 +7,8 @@
 const logs = {};
 
 function log() {
+  console.clear();
+
   if (Object.entries.length > 0) {
     Object.entries(logs).forEach((pair) => {
       const [name, progress] = pair;

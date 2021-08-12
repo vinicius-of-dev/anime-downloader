@@ -51,7 +51,7 @@ function numberOfEpisode(titles) {
  */
 
 function limitMagnetics(links, limit) {
-  const filteredLinks = links.filter((el) => el !== nul).reverse();
+  const filteredLinks = links.filter((el) => el !== null).reverse();
 
   if (limit) {
     const limitedLinks = filteredLinks.splice(-limit);
