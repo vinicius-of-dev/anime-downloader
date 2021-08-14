@@ -38,11 +38,6 @@ function downloadIndicator({ name, progress }) {
  */
 
 function addLog({ name, progress }) {
-  if (progress === 1) {
-    delete logs[name];
-    return true;
-  }
-
   logs[name] = progress;
 }
 

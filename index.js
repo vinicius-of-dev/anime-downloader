@@ -71,16 +71,10 @@ animes.map(async (name) => {
       [quality]
     );
 
-    // Getting all the titles. NOT IN USE.
-    // const titles = await page.$$eval("label.episode-title", (elements) =>
-    //   elements.map((element) => element.innerText)
-    // );
-
     await browser.close();
 
     // Filtering the null values from divDownload
     const filteredMagneticLinks = limitMagnetics(divDownload, limitPerPage);
-    // const numbers = numberOfEpisode(titles); NOT IN USE.
 
     const logInterval = setInterval(log, 5000);
 
@@ -96,14 +90,10 @@ animes.map(async (name) => {
               return;
             }
 
-            const addLogInterval = setInterval(
+            setInterval(
               () => addLog({ name: file.name, progress: file.progress }),
               5000
             );
-
-            // const interval = setInterval(() => {
-            //   console.log(file.name + " => " + file.progress * 100 + "%");
-            // }, 5000);
 
             const source = file.createReadStream();
             const destination = fs.createWriteStream(
