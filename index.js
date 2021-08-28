@@ -78,7 +78,9 @@ animes.map(async (name) => {
 
     const logInterval = setInterval(log, 5000);
 
-    await filteredMagneticLinks.forEach((magnet) => {
+    let downloadNumbers = filteredMagneticLinks.length;
+
+    filteredMagneticLinks.forEach((magnet) => {
       client.add(
         magnet,
         { ...clientConfigs, path: `${output}/${name}` },
@@ -86,6 +88,7 @@ animes.map(async (name) => {
           const files = torrent.files;
           files.forEach((file) => {
             if (fs.existsSync(`${output}/${name}/${file.name}`)) {
+              downloadNumbers -= 1;
               torrent.destroy();
               return;
             }
@@ -103,6 +106,12 @@ animes.map(async (name) => {
             source
               .on("end", () => {
                 console.log("Download Completed! ==> ", file.name);
+                if (downloadNumbers === 0) {
+                  console.log("Finished Download!");
+                  process.exit(0);
+                }
+
+                downloadNumbers -= 1;
               })
               .pipe(destination);
           });
